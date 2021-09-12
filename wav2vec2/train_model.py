@@ -66,7 +66,7 @@ def speech_file_to_array_fn(batch):
 
 
 def augment_add_noise_speech_file_to_array_fn(batch):
-    speech_array, sampling_rate = sf.read(batch["path_file"])
+    speech_array, sampling_rate = sf.read(batch["path"])
     len_augment = len(augment)
     id_rand = np.random.randint(int(len_augment*0.9))
     speech_array = speech_array + augment[id_rand: len(speech_array)+id_rand]*0.3
@@ -203,7 +203,7 @@ if __name__ == "__main__":
         save_steps=500,
         eval_steps=2000,
         logging_steps=500,
-        learning_rate=5e-5,
+        learning_rate=5e-4,
         weight_decay=0.005,
         warmup_steps=1000,
         save_total_limit=2,
