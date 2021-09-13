@@ -57,7 +57,7 @@ class DataCollatorCTCWithPadding:
 
 
 def speech_file_to_array_fn(batch):
-    speech_array, sampling_rate = sf.read(batch["path"])
+    speech_array, sampling_rate = sf.read(batch["path_file"])
     batch["speech"] = speech_array
     batch["sampling_rate"] = sampling_rate
     batch["transcript"] = batch["transcript"].lower()
@@ -66,7 +66,7 @@ def speech_file_to_array_fn(batch):
 
 
 def augment_add_noise_speech_file_to_array_fn(batch):
-    speech_array, sampling_rate = sf.read(batch["path"])
+    speech_array, sampling_rate = sf.read(batch["path_file"])
     len_augment = len(augment)
     id_rand = np.random.randint(int(len_augment*0.9))
     speech_array = speech_array + augment[id_rand: len(speech_array)+id_rand]*0.3
