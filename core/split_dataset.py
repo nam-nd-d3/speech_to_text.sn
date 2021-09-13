@@ -34,11 +34,11 @@ def main():
     root_dataset = pd.read_csv(args.root_data_csv)
     
     msk = np.random.rand(len(root_dataset)) <= args.ratio_split
-        train_csv = root_dataset[msk]
-        test_csv = root_dataset[~msk]
-        train_csv.to_csv(args.train_data_csv)
-        test_csv.to_csv(args.test_data_csv)
-        logger.info(f"Train size: {len(train_csv)} - Test size: {len(test_csv)}")  
+    train_csv = root_dataset[msk]
+    test_csv = root_dataset[~msk]
+    train_csv.to_csv(args.train_data_csv)
+    test_csv.to_csv(args.test_data_csv)
+    logger.info(f"Train size: {len(train_csv)} - Test size: {len(test_csv)}")  
 
 if __name__=="__main___":
     main()
