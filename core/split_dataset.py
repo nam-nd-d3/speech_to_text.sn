@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import argparse
+import numpy as np
 
 parser = argparse.ArgumentParser(description='Split datasets wav2vec2.')
 parser.add_argument('--root_data_csv',
