@@ -200,13 +200,15 @@ if __name__ == "__main__":
         evaluation_strategy="steps",
         num_train_epochs=args.num_epochs,
         fp16=True,
-        save_steps=500,
-        eval_steps=2000,
-        logging_steps=500,
-        learning_rate=5e-4,
+        lr_scheduler_type="cosine_with_restart",
+        save_steps=1000,
+        eval_steps=1000,
+        dataloader_drop_last=True,
+        logging_steps=1000,
+        learning_rate=5e-5,
         weight_decay=0.005,
         warmup_steps=1000,
-        save_total_limit=2,
+        save_total_limit=1,
     )
 
     trainer = Trainer(
