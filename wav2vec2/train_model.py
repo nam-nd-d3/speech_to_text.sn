@@ -200,7 +200,7 @@ if __name__ == "__main__":
         evaluation_strategy="steps",
         num_train_epochs=args.num_epochs,
         fp16=True,
-        lr_scheduler_type="cosine_with_restart",
+        lr_scheduler_type="cosine_with_restarts",
         save_steps=1000,
         eval_steps=1000,
         dataloader_drop_last=True,
